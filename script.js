@@ -26,6 +26,13 @@ function getCriteria(){
   var uppercase=confirm("Please confirm if you would like to use uppercase characters in your password.");
   var numbers=confirm("Please confirm if you would like to use numeric characters in your password.");
   var special=confirm("Please confirm if you would like to use special characters in your password.");
+  while(!lowercase && !uppercase && !numbers && !special){
+    alert("Please select at least one of the criteria.");
+    lowercase=confirm("Please confirm if you would like to use lowercase characters in your password.");
+    uppercase=confirm("Please confirm if you would like to use uppercase characters in your password.");
+    numbers=confirm("Please confirm if you would like to use numeric characters in your password.");
+    special=confirm("Please confirm if you would like to use special characters in your password.");
+  }
   return [passLength,lowercase,uppercase,numbers,special];
 }
 
