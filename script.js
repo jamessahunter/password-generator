@@ -31,9 +31,10 @@ function getCriteria(){
 
 function generatePassword(Arr){
   console.log(Arr);
-  // while(count<Arr[0]){
+  while(count<Arr[0]){
   if(Arr[1]){//lowercase
-    pass=pass+alphabetLowerArr[Math.floor(Math.random() * alphabetLowerArr.length) + 1];
+    pass=pass+alphabetLowerArr[Math.floor(Math.random() * alphabetLowerArr.length) ];
+    count++;
     console.log("lower");
     console.log(pass);
   }
@@ -41,7 +42,8 @@ function generatePassword(Arr){
 
   }
   if(Arr[2]){//uppercase
-    pass=pass+alphabetUpperArr[Math.floor(Math.random() * alphabetUpperArr.length) + 1];
+    pass=pass+alphabetUpperArr[Math.floor(Math.random() * alphabetUpperArr.length) ];
+    count++;
     console.log("upper");
     console.log(pass);
   }
@@ -49,7 +51,8 @@ function generatePassword(Arr){
 
   }
   if(Arr[3]){//numbers
-    pass=pass+numArr[Math.floor(Math.random() * numArr.length) + 1];
+    pass=pass+numArr[Math.floor(Math.random() * numArr.length) ];
+    count++;
     console.log("number");
     console.log(pass);
   }
@@ -57,12 +60,13 @@ function generatePassword(Arr){
 
   }
   if(Arr[4]){//special
-    pass=pass+specialArr[Math.floor(Math.random() * specialArr.length) + 1];
+    pass=pass+specialArr[Math.floor(Math.random() * specialArr.length) ];
+    count++;
     console.log("special");
     console.log(pass);
   }
-  // }
-  return;
+  }
+  return pass;
 }
 
 // console.log(specialArr[0],specialArr[1],specialArr[2]);
