@@ -5,13 +5,13 @@ var alphabetLowerArr=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o
 var numArr=["0","1","2","3","4","5","6","7","8","9"];
 var specialArr=["\u0022","\u0027","\u005C"," ","!","#","$","%","&","(",",",")","*","+","-",".","/",":",";","<","=",">","?","@","[","]","^","_","`","{","|","}","~"];
 var count=0;
-var pass="";
 // var  criteriaArr=[];
 var Arr=[];
 
 function getCriteria(){
   // console.log("test")
-  var passLength=prompt("PLease enter the length of password you would like to generate.");
+  var passLength=0;
+  passLength=prompt("PLease enter the length of password you would like to generate.");
   if(passLength===null){
     console.log("works");
     return;
@@ -37,12 +37,12 @@ function getCriteria(){
 }
 
 function generatePassword(Arr){
+  var pass="";
   console.log(Arr);
   while(count<Arr[0]){
   if(Arr[1]){//lowercase
     pass=pass+alphabetLowerArr[Math.floor(Math.random() * alphabetLowerArr.length) ];
     count++;
-    console.log("lower");
     console.log(pass);
   }
   else{
@@ -51,7 +51,6 @@ function generatePassword(Arr){
   if(Arr[2]){//uppercase
     pass=pass+alphabetUpperArr[Math.floor(Math.random() * alphabetUpperArr.length) ];
     count++;
-    console.log("upper");
     console.log(pass);
   }
   else{
@@ -60,7 +59,6 @@ function generatePassword(Arr){
   if(Arr[3]){//numbers
     pass=pass+numArr[Math.floor(Math.random() * numArr.length) ];
     count++;
-    console.log("number");
     console.log(pass);
   }
   else{
@@ -69,10 +67,10 @@ function generatePassword(Arr){
   if(Arr[4]){//special
     pass=pass+specialArr[Math.floor(Math.random() * specialArr.length) ];
     count++;
-    console.log("special");
     console.log(pass);
   }
   }
+  count=0;
   return pass;
 }
 
@@ -80,12 +78,13 @@ function generatePassword(Arr){
 // Write password to the #password input
 function writePassword() {
   var criteriaArr=getCriteria();
+
   // console.log(criteriaArr);
   var password = generatePassword(criteriaArr);
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
+  // count=0;
 }
 
 // Add event listener to generate button
