@@ -11,12 +11,13 @@ var Arr=[];
 function getCriteria(){
   // console.log("test")
   var passLength=0;
-  passLength=prompt("PLease enter the length of password you would like to generate.");
+  passLength=prompt("Please enter the length of password you would like to generate.");
   if(passLength===null){
     console.log("works");
     return;
   }
-  while(passLength<8 || passLength>128){
+  console.log(isNaN(passLength));
+  while(passLength<8 || passLength>128||isNaN(passLength)){
     passLength=prompt("Please enter a number between 8 and 128.");
     if(passLength===null){
       return;
