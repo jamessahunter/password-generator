@@ -1,4 +1,5 @@
 // Assignment Code
+//selects the button element
 var generateBtn = document.querySelector("#generate");
 //sets arrays for all the characters needed
 var alphabetUpperArr=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
@@ -7,12 +8,10 @@ var numArr=["0","1","2","3","4","5","6","7","8","9"];
 var specialArr=["\u0022","\u0027","\u005C"," ","!","#","$","%","&","(",",",")","*","+","-",".","/",":",";","<","=",">","?","@","[","]","^","_","`","{","|","}","~"];
 //initializes count variable
 var count=0;
-// var  criteriaArr=[];
 //initializes empty array
 var Arr=[];
 // funciton to get the criteria
 function getCriteria(){
-  // console.log("test")
   // initializes password length to 0
   var passLength=0;
   //prompts the user to enter lenght of password
@@ -22,7 +21,6 @@ function getCriteria(){
     console.log("works");
     return;
   }
-  // console.log(isNaN(passLength));
   //checks if password length is a number inbetween 8 and 128
   while(passLength<8 || passLength>128||isNaN(passLength)){
     passLength=prompt("Please enter a number between 8 and 128.");
@@ -51,7 +49,6 @@ function getCriteria(){
 function generatePassword(Arr){
   //initializes string variable pass
   var pass="";
-  // console.log(Arr);
   //while loop used to make password of desired length
   while(count<Arr[0]){
     //checks if the lowercase criteria is used
@@ -59,34 +56,27 @@ function generatePassword(Arr){
     //randomly selects one character and adds it to the password and adds 1 to count
     pass=pass+alphabetLowerArr[Math.floor(Math.random() * alphabetLowerArr.length) ];
     count++;
-    // console.log(pass);
   }
   else{
-
   }
   if(Arr[2]){//uppercase
     //same as above for upper case
     pass=pass+alphabetUpperArr[Math.floor(Math.random() * alphabetUpperArr.length) ];
     count++;
-    // console.log(pass);
   }
   else{
-
   }
   if(Arr[3]){//numbers
     //same for numbers
     pass=pass+numArr[Math.floor(Math.random() * numArr.length) ];
     count++;
-    // console.log(pass);
   }
   else{
-
   }
   if(Arr[4]){//special
     //same for special 
     pass=pass+specialArr[Math.floor(Math.random() * specialArr.length) ];
     count++;
-    // console.log(pass);
   }
   }
   //resets count to allow for multiple password generations
@@ -100,16 +90,14 @@ function generatePassword(Arr){
 function writePassword() {
   //calls function to get criteria
   var criteriaArr=getCriteria();
-
-  // console.log(criteriaArr);
   //calls function to generate password and uses the criteria for the parameters
   var password = generatePassword(criteriaArr);
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-  // count=0;
 }
 
 // Add event listener to generate button
+//listens for click
 generateBtn.addEventListener("click", writePassword);
 
